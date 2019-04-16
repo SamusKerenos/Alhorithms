@@ -14,8 +14,8 @@
 			"Diana",
 			"Erica",
 			"Ethan",
-			"Frank",
 			"Fedora",
+			"Frank",
 			"Gracy",
 			"Gregor"
 		};

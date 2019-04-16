@@ -25,44 +25,59 @@ namespace BinarySearch
 
 			Console.WriteLine("Now enter the name which you want to search:");
 
-			string data = Console.ReadLine();
-			while (string.IsNullOrWhiteSpace(data) || !Char.IsLetter(data.FirstOrDefault()))
+			string searched = Console.ReadLine();
+			while (string.IsNullOrWhiteSpace(searched) || !Char.IsLetter(searched.FirstOrDefault()))
 			{
 				Console.WriteLine("You should enter name, try again:");
-				data = Console.ReadLine();
+				searched = Console.ReadLine();
 			}
 
+			Console.WriteLine("=== Search Started ===");
 			string[] source = repository.Data.CopyData();
 			bool searchComplete = false;
-			bool success = false;
 			int stepNumber = 1;
-
+			
 			do
 			{
-				Console.Write($"Step {stepNumber}, we enter:");
+				Console.Write($"\nStep {stepNumber}, we enter:");
 				foreach (string item in source)
 				{
 					Console.Write($"{item} ");
 				}
 				Console.WriteLine();
 
-				success = SearchEngin.Step(ref source, data);
+				int middleIndex = source.Length / 2;
+				Console.WriteLine($"\nWe define the index of middle element: {middleIndex} \nto do it we just devide on 2 length of entered data.");
 
-				searchComplete = success || !source.Any();
-				
+				int comparer = source[middleIndex].ToLower().CompareTo(searched.ToLower());
+				Console.WriteLine($"\nWe compare middle element: {source[middleIndex]} \nwith element which we want to find: {searched} \nBy using String.CompareTo() method and get: {comparer}");
+
+				if (comparer == 0)
+				{
+					searchComplete = true;
+					Console.WriteLine($"\nAnd we foud that it element is equals with searched! \nIn data sequence we found: {searched} on step {stepNumber}");
+				}
+				else if (source.Count() == 1)
+				{
+					searchComplete = true;
+					Console.WriteLine($"\nData sequence don't contains searched element");
+				}
+				else if (comparer < 0)
+				{
+					source = source.CopyDataFrom(middleIndex);
+					Console.WriteLine("\nIf comparer value less then zero, that meat that middle element less then searched \nAnd we get elements affter middle element for next step");
+				}
+				else
+				{
+					source = source.CopyDataTill(middleIndex);
+					Console.WriteLine("\nIf comparer value greate then zero, that meat that middle element higher then searched \nAnd we get elements before middle element (include it) for next step");
+				}
+
+				Console.WriteLine("\nPress any key to continue");
+				Console.WriteLine("=====================================");
+				Console.ReadKey();
 				stepNumber++;
 			} while (!searchComplete);
-
-			if (success)
-			{
-				Console.WriteLine($"In data sequence we found: {data} on step {stepNumber}");
-			}
-			else
-			{
-				Console.WriteLine($"We don't found {data} in curent sequence, search complete on {stepNumber}");
-			}
-
-			Console.ReadKey();
 		}
 	}
 }
