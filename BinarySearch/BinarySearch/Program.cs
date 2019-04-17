@@ -35,11 +35,11 @@ namespace BinarySearch
 			Console.WriteLine("=== Search Started ===");
 			string[] source = repository.Data.CopyData();
 			bool searchComplete = false;
-			int stepNumber = 1;
+			int step = 1;
 			
 			do
 			{
-				Console.Write($"\nStep {stepNumber}, we enter:");
+				Console.Write($"\nStep {step}, we enter:");
 				foreach (string item in source)
 				{
 					Console.Write($"{item} ");
@@ -55,7 +55,7 @@ namespace BinarySearch
 				if (comparer == 0)
 				{
 					searchComplete = true;
-					Console.WriteLine($"\nAnd we foud that it element is equals with searched! \nIn data sequence we found: {searched} on step {stepNumber}");
+					Console.WriteLine($"\nAnd we foud that it element is equals with searched! \nIn data sequence we found: {searched} on step {step}");
 				}
 				else if (source.Count() == 1)
 				{
@@ -76,7 +76,7 @@ namespace BinarySearch
 				Console.WriteLine("\nPress any key to continue");
 				Console.WriteLine("=====================================");
 				Console.ReadKey();
-				stepNumber++;
+				step++;
 			} while (!searchComplete);
 		}
 	}
