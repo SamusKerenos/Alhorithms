@@ -5,7 +5,7 @@ namespace SelectionSort
 	internal class Program
 	{
 		private const int min = 1;
-		private const int max = 2;
+		private const int max = 50;
 
 		private static void Main(string[] args)
 		{
@@ -14,7 +14,6 @@ namespace SelectionSort
 			Console.Write("\nEnter length for source array: ");
 			string strLength = Console.ReadLine();
 			int length = 0;
-
 			while (!int.TryParse(strLength, out length))
 			{
 				Console.Write("Entered data is not a number, try again: ");
@@ -25,13 +24,14 @@ namespace SelectionSort
 			Random random = new Random(DateTime.Now.Millisecond);
 
 			Console.WriteLine("=====================================");
-			Console.WriteLine($"We sort array by descending,\nmin value is: {min} \nmax value is: {max}");
-
+			Console.WriteLine($@"We sort array by descending,
+where min value is: {min} 
+and max value is: {max}");
 			Console.WriteLine("=====================================");
-			Console.WriteLine("Data for sort:");
+			Console.Write("Data for sort:");
 			for (int i = 0; i < source.Length; i++)
 			{
-				source[i] = random.Next(1, 100);
+				source[i] = random.Next(min, max);
 				Console.Write($"{source[i]} ");
 			}
 			Console.WriteLine();
@@ -44,21 +44,51 @@ namespace SelectionSort
 			{
 				Console.Write($"Step {step} we enter: ");
 				ShowSequence(source);
+				Console.WriteLine("-------------------------------------");
+				Console.WriteLine($@"We try to found the bigest element in source array. 
+We put the first element of source array at {j} position in sorted array 
+Then we compare each element in source array with this element
+And change it if we found a bigger element");
+				Console.WriteLine("-------------------------------------");
 
 				sorted[j] = source[0];
 				for (int i = 0; i < source.Length; i++)
 				{
+					Console.Write($" -check: {i + 1}");
 					if (sorted[j] < source[i])
 					{
+						Console.Write(" ==Finded!");
 						sorted[j] = source[i];
+						step++;
+					}
+					step++;
+				}
+				Console.WriteLine();
+				Console.WriteLine("-------------------------------------");
+				Console.WriteLine($@"We find the greatest element in source sequince.
+And put it on {j} position in result sequence.
+Now we change element: {sorted[j]} in source sequence to {min}");
+				Console.WriteLine("-------------------------------------");
+
+				for (int i = 0; i < source.Length; i++)
+				{
+					step++;
+					if (source[i] == sorted[j])
+					{
+						Console.Write(" ==Change!");
+						source[i] = min;
+						step++;
+						break;
+					}
+					else
+					{
+						Console.Write($" -don't: {i}");
 					}
 				}
-				Console.WriteLine($"We find the greatest element in source sequince. And put in on {j + 1} position in result sequence");
 
-				Console.WriteLine($"\nNow we create new source sequence without element {sorted[j]}");
-				source = source.CopyInsteadOf(sorted[j]);
-		
-				Console.WriteLine("\nPress any key to continue");
+				Console.WriteLine();
+				Console.WriteLine("-------------------------------------");
+				Console.WriteLine("Press any key to continue");
 				Console.WriteLine("=====================================");
 				Console.ReadKey();
 				step++;
@@ -66,6 +96,7 @@ namespace SelectionSort
 
 			Console.Write("Sorted sequence: ");
 			ShowSequence(sorted);
+			Console.WriteLine($"We make {step} steps to do it for array with length: {length}");
 			Console.WriteLine("=====================================");
 			
 			Console.ReadKey();

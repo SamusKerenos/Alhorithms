@@ -23,12 +23,11 @@ namespace BinarySearch
 			Console.WriteLine($"In summary we have: {repository.Data.Count()} names, \n which sort by first letters, \n starter from: {repository.Data.FirstOrDefault().FirstOrDefault()} and end at: {repository.Data.Last().FirstOrDefault()}");
 			Console.WriteLine("=====================================");
 
-			Console.WriteLine("Now enter the name which you want to search:");
-
+			Console.Write("Now enter the name which you want to search: ");
 			string searched = Console.ReadLine();
-			while (string.IsNullOrWhiteSpace(searched) || !Char.IsLetter(searched.FirstOrDefault()))
+			while (string.IsNullOrWhiteSpace(searched) || searched.Any(c => !Char.IsLetter(c)))
 			{
-				Console.WriteLine("You should enter name, try again:");
+				Console.Write("You should enter name, try again:");
 				searched = Console.ReadLine();
 			}
 
@@ -39,7 +38,7 @@ namespace BinarySearch
 			
 			do
 			{
-				Console.Write($"\nStep {step}, we enter:");
+				Console.Write($"\nStep {step}, we enter: ");
 				foreach (string item in source)
 				{
 					Console.Write($"{item} ");
