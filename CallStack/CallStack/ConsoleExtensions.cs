@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
 
 namespace System
@@ -37,6 +36,30 @@ namespace System
 			} while (!sucessful);
 
 			return number;
+		}
+
+		public static string MakeLeftPadding(int step)
+		{
+			StringBuilder result = new StringBuilder();
+
+			for (int i = 0; i < step; i++)
+			{
+				result.Append("-");
+			}
+
+			return result.ToString();
+		}
+
+		public static string RepresentList(this List<int> source)
+		{
+			StringBuilder result = new StringBuilder();
+
+			foreach (int item in source)
+			{
+				result.Append($" {item}");
+			}
+
+			return result.ToString();
 		}
 	}
 }
