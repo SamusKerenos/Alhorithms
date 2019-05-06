@@ -30,13 +30,13 @@ Each function in call stack will be represetn by: -symbol
 
 			if (source != 1)
 			{
-				Description.AppendLine($"{MakeLeftPadding()} Recurent case step: {Step} source: {source}");
+				Description.AppendLine($"{MakeLeftPadding()} Recurent case step: {Step, 2} source: {source}");
 
 				Step++;
 				int result = source * RecurentFind(source - 1);
 				Step--;
 
-				Description.AppendLine($"{MakeLeftPadding()} Back to step: {Step} result: {result}");
+				Description.AppendLine($"{MakeLeftPadding()} Back to step: {Step, 2} result: {result}");
 
 				if (Step == 1)
 				{

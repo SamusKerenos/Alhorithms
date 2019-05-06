@@ -10,15 +10,8 @@ namespace CallStack
 		{
 			Console.WriteLine("===Call Stack Representation===");
 
-			Console.Write("Enter some number (not too big, we use recursion): ");
-			string strNumber = Console.ReadLine();
-			int number = 0;
-			while (!int.TryParse(strNumber, out number) || number > _max)
-			{
-				Console.Write($"Entered data is not a number or value bigger then: {_max}, try again: ");
-				strNumber = Console.ReadLine();
-			}
-						
+			int number = ConsoleExtensions.GetIntNumber(15, 5);
+			
 			var factorial = new FactorialWithDescription();
 			int result = factorial.RecurentFind(number);
 			Console.WriteLine(factorial.Description);
