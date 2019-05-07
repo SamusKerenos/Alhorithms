@@ -30,23 +30,47 @@ Available Actions:
 				Console.ForegroundColor = ConsoleColor.Cyan;
 				Console.WriteLine(factorial.Description);
 				Console.ResetColor();
+
+				Console.WriteLine($@"
+============================
+| Factorial is: {result,10} |
+============================
+");
 			}
 
 			if (choice == 2)
 			{
 				Console.WriteLine("=== Binary Tree Selected ===");
-				
-				var tree = RandomGenerator.GetRandomIntThree(16, 1, 25);
+				int length = ConsoleExtensions.GetIntNumber(30, 10);
+
+				var source = RandomGenerator.GetRandomIntArray(16, 1, length);
+				Console.WriteLine($@"
+===========================================================
+| Initial array: {source.Represent()}
+===========================================================
+");
+				var tree = new Node();
+				foreach (var item in source)
+				{
+					tree.Data = item;
+				}
+
 				var treeWalker = new WalkerWithDescription();
 				var result = treeWalker.RecurentWalk(tree).ToList();
 
 				Console.ForegroundColor = ConsoleColor.Red;
 				Console.WriteLine(treeWalker.Description);
 				Console.ResetColor();
+
+				Console.WriteLine($@"
+===========================================================
+| Result list: {result.Represent()}
+===========================================================
+");
 			}
 
 			Console.WriteLine("Press any key to exit");
-			 Console.ReadKey();
+			Console.ReadKey();
 		}
 	}
 }

@@ -7,11 +7,11 @@ namespace CallStack
 	{
 		public StringBuilder Description { get; } = new StringBuilder();
 
-		public int Step { get; private set; } = 1;
+		public int Level { get; private set; } = 1;
 
 		public int RecurentFind(int source)
 		{
-			if (Step == 1)
+			if (Level == 1)
 			{
 				Description.AppendLine($@"
 ==================================================
@@ -24,29 +24,19 @@ namespace CallStack
 
 			if (source != 1)
 			{
-				Description.AppendLine($"{ConsoleExtensions.MakeLeftPadding(Step)} Recurent case step: {Step,2} source: {source}");
+				Description.AppendLine($"{ConsoleExtensions.MakeLeftPadding(Level)} Recurent level: {Level,2} source: {source}");
 
-				Step++;
+				Level++;
 				int nextResult = RecurentFind(source - 1);
 				int currentResult = source * nextResult;
-				Step--;
+				Level--;
 
-				Description.AppendLine($"{ConsoleExtensions.MakeLeftPadding(Step)} Back to step: {Step,2} result: {currentResult} = {source} * {nextResult}");
-
-				if (Step == 1)
-				{
-					Description.AppendLine($@"
-============================
-| Factorial is: {currentResult, 10} |
-============================
-");
-				}
-
+				Description.AppendLine($"{ConsoleExtensions.MakeLeftPadding(Level)} Back to level: {Level,2} result: {currentResult} = {source} * {nextResult}");
 				return currentResult;
 			}
 			else
 			{
-				Description.AppendLine($"{ConsoleExtensions.MakeLeftPadding(Step)} BASE CASE: recursion End, now function run back on call stack");
+				Description.AppendLine($"{ConsoleExtensions.MakeLeftPadding(Level)} BASE CASE: recursion End, now function run back on call stack");
 				return source;
 			}
 		}

@@ -6,14 +6,13 @@ namespace CallStack.BinaryTree
 	{
 		private static Random _engin = new Random(DateTime.Now.Millisecond);
 
-		public static Node GetRandomIntThree(int maxItem, int minItem, int count)
+		public static int[] GetRandomIntArray(int maxItem, int minItem, int count)
 		{
-			Node result = new Node();
+			int[] result = new int[count];
 
-			while (count > 0)
+			for (int i = 0; i < count; i++)
 			{
-				result.Data = _engin.Next(minItem, maxItem);
-				count--;
+				result[i] = _engin.Next(minItem, maxItem);
 			}
 
 			return result;

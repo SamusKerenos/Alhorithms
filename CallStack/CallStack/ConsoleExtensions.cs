@@ -50,7 +50,19 @@ namespace System
 			return result.ToString();
 		}
 
-		public static string RepresentList(this List<int> source)
+		public static string Represent(this List<int> source)
+		{
+			StringBuilder result = new StringBuilder();
+
+			foreach (int item in source)
+			{
+				result.Append($" {item}");
+			}
+
+			return result.ToString();
+		}
+
+		public static string Represent(this int[] source)
 		{
 			StringBuilder result = new StringBuilder();
 
