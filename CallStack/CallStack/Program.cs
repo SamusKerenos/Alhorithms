@@ -8,7 +8,7 @@ namespace CallStack
 	{
 		private static void Main(string[] args)
 		{
-			Console.WriteLine("=== Call Stack Representation ===");
+			Console.WriteLine("=== Call Stack In Recurent Algorithms ===");
 			Console.WriteLine(@"
 Available Actions:
 ============================================
@@ -16,7 +16,6 @@ Available Actions:
 | 2. Binary tree call stack representation |
 ============================================
 ");
-
 			int choice = ConsoleExtensions.GetIntNumber(2, 1);
 
 			if (choice == 1)
@@ -43,7 +42,7 @@ Available Actions:
 				Console.WriteLine("=== Binary Tree Selected ===");
 				int length = ConsoleExtensions.GetIntNumber(30, 10);
 
-				var source = RandomGenerator.GetRandomIntArray(16, 1, length);
+				int[] source = RandomGenerator.GetRandomIntArray(16, 1, length);
 				Console.WriteLine($@"
 ===========================================================
 | Initial array: {source.Represent()}

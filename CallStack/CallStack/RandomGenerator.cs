@@ -1,16 +1,16 @@
 ﻿using System;
 
-namespace CallStack.BinaryTree
+namespace CallStack
 {
 	public static class RandomGenerator
 	{
 		private static Random _engin = new Random(DateTime.Now.Millisecond);
 
-		public static int[] GetRandomIntArray(int maxItem, int minItem, int count)
+		public static int[] GetRandomIntArray(int maxItem, int minItem, int length)
 		{
-			int[] result = new int[count];
+			int[] result = new int[length];
 
-			for (int i = 0; i < count; i++)
+			for (int i = 0; i < length; i++)
 			{
 				result[i] = _engin.Next(minItem, maxItem);
 			}
