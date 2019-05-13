@@ -38,13 +38,13 @@ namespace CallStack.BinaryTree
 			if (root.Right != null)
 			{
 				Level++;
-				Description.Append($"|({nodeType})-> Right |");
+				Description.Append($"|({nodeType}) -> Right |");
 				var right = RecurentWalk(root.Right, "right");
 				result.AddRange(right);
 			}
 
 			result.Add(root.Data);
-			Description.AppendLine($"|({nodeType})= Got: {root.Data}|");
+			Description.AppendLine($"|({nodeType}) = Got: {root.Data}|");
 			Description.AppendLine($@"{ConsoleExtensions.MakeLeftPadding(Level)} | Recurent level: {Level} | All values: {result.Represent()}
 -------------------------------------------------------------------------------------------------------------------");
 			Level--;
