@@ -16,9 +16,14 @@ namespace CallStack.BinaryTree
 			if (Level == 1)
 			{
 				Description.AppendLine($@"
-================================================
-| We show recurent walking through binary tree |
-================================================
+=================================================
+| We show recurent walking through binary tree  |
+| At first we look at left side and if we have  |
+| left node we move there. Then we look at rght |
+| and if we have right node - move there. Then  |
+| we look at current node to take it value and  |
+| move to the root                              |
+=================================================
 ");
 			}
 			

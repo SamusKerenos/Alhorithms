@@ -1,82 +1,36 @@
 ﻿using System;
-using System.Linq;
 
 namespace BinarySearch
 {
-	class Program
+	internal class Program
 	{
-		static void Main(string[] args)
+		private static void Main(string[] args)
 		{
-			Console.WriteLine("===Binary Search Representation===");
+			Console.WriteLine("=== Binary Search Representation ===");
 			var repository = new Repository();
+			var searcher = new BinarySearchWithDescription();
 
 			Console.WriteLine("Data for search:");
-			Console.WriteLine("|| Name:     || Number: || Letter: ||");
-			Console.WriteLine("=====================================");
-			for (int i = 0; i < repository.Data.Length; i++)
-			{
-				int number = i + 1;
-				Console.WriteLine($"|| {repository.Data[i], -10}||{number, 8} ||{repository.Data[i].FirstOrDefault(), 8} ||");
-			}
-			Console.WriteLine("=====================================");
+			Console.WriteLine(repository.Represent());
 
-			Console.WriteLine($"In summary we have: {repository.Data.Count()} names, \n which sort by first letters, \n starter from: {repository.Data.FirstOrDefault().FirstOrDefault()} and end at: {repository.Data.Last().FirstOrDefault()}");
-			Console.WriteLine("=====================================");
-
-			Console.Write("Now enter the name which you want to search: ");
-			string searched = Console.ReadLine();
-			while (string.IsNullOrWhiteSpace(searched) || searched.Any(c => !Char.IsLetter(c)))
-			{
-				Console.Write("You should enter name, try again:");
-				searched = Console.ReadLine();
-			}
+			string searchedName = ConsoleExtensions.GetName();
 
 			Console.WriteLine("=== Search Started ===");
-			string[] source = repository.Data.CopyData();
-			bool searchComplete = false;
-			int step = 1;
-			
-			do
-			{
-				Console.Write($"\nStep {step}, we enter: ");
-				foreach (string item in source)
-				{
-					Console.Write($"{item} ");
-				}
-				Console.WriteLine();
+			DataNode searched = searcher.Search(repository.Data, searchedName);
 
-				int middleIndex = source.Length / 2;
-				Console.WriteLine($"\nWe define the index of middle element: {middleIndex} \nto do it we just devide on 2 length of entered data.");
+			Console.ForegroundColor = ConsoleColor.Blue;
+			Console.WriteLine(searcher.Description);
+			Console.ResetColor();
 
-				int comparer = source[middleIndex].ToLower().CompareTo(searched.ToLower());
-				Console.WriteLine($"\nWe compare middle element: {source[middleIndex]} \nwith element which we want to find: {searched} \nBy using String.CompareTo() method and get: {comparer}");
+			Console.WriteLine($@"
+======================================
+|| Searched node is: 
+{searched.Represent()}
+======================================
+");
 
-				if (comparer == 0)
-				{
-					searchComplete = true;
-					Console.WriteLine($"\nAnd we foud that it element is equals with searched! \nIn data sequence we found: {searched} on step {step}");
-				}
-				else if (source.Count() == 1)
-				{
-					searchComplete = true;
-					Console.WriteLine($"\nData sequence don't contains searched element");
-				}
-				else if (comparer < 0)
-				{
-					source = source.CopyDataFrom(middleIndex);
-					Console.WriteLine("\nIf comparer value less then zero, that meat that middle element less then searched \nAnd we get elements affter middle element for next step");
-				}
-				else
-				{
-					source = source.CopyDataTill(middleIndex);
-					Console.WriteLine("\nIf comparer value greate then zero, that meat that middle element higher then searched \nAnd we get elements before middle element (include it) for next step");
-				}
-
-				Console.WriteLine("\nPress any key to continue");
-				Console.WriteLine("=====================================");
-				Console.ReadKey();
-				step++;
-			} while (!searchComplete);
+			Console.WriteLine("Press any key to exit");
+			Console.ReadKey();
 		}
 	}
 }

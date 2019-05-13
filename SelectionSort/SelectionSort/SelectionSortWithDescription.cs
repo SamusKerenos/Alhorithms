@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 
 namespace SelectionSort
 {
@@ -20,10 +19,10 @@ namespace SelectionSort
 		private int[] Sort(int[] source, bool isAscending)
 		{
 			string sortRuleName = isAscending ? "ASCENDING" : "DESCENDING";
-			
+
 			Description.Append($@"
 =======================================
-|   {sortRuleName, 10} sort with description  |
+|   {sortRuleName,10} sort with description  |
 =======================================
 | We iterate over the result array.   |
 | And for each result element         |
@@ -45,7 +44,7 @@ namespace SelectionSort
 				result[i] = source[i];
 				Description.AppendLine($@"
 First checked value is: {result[i]} sort rule is: {sortRuleName} source length is: {source.Length - (i + 1)}");
-				
+
 				for (int j = i + 1; j < source.Length; j++)
 				{
 					Description.Append($" -check: {j + 1}");
