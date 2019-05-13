@@ -9,7 +9,7 @@ namespace CallStack.BinaryTree
 		public StringBuilder Description { get; } = new StringBuilder();
 		public int Level { get; private set; } = 1;
 
-		public List<int> RecurentWalk(Node root)
+		public List<int> RecurentWalk(Node root, string nodeType = "root")
 		{
 			List<int> result = new List<int>();
 
@@ -30,20 +30,23 @@ namespace CallStack.BinaryTree
 			if (root.Left != null)
 			{
 				Level++;
-				var left = RecurentWalk(root.Left);
+				Description.Append($"|({nodeType}) -> Left |");
+				var left = RecurentWalk(root.Left, "left");
 				result.AddRange(left);
 			}
 			
 			if (root.Right != null)
 			{
 				Level++;
-				var right = RecurentWalk(root.Right);
+				Description.Append($"|({nodeType})-> Right |");
+				var right = RecurentWalk(root.Right, "right");
 				result.AddRange(right);
 			}
 
 			result.Add(root.Data);
-
-			Description.AppendLine($"{ConsoleExtensions.MakeLeftPadding(Level)} Recurent level: {Level} | All values: {result.Represent()}");
+			Description.AppendLine($"|({nodeType})= Got: {root.Data}|");
+			Description.AppendLine($@"{ConsoleExtensions.MakeLeftPadding(Level)} | Recurent level: {Level} | All values: {result.Represent()}
+-------------------------------------------------------------------------------------------------------------------");
 			Level--;
 			
 			return result;

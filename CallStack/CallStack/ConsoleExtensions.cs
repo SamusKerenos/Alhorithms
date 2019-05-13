@@ -44,7 +44,7 @@ namespace System
 
 			for (int i = 0; i < step; i++)
 			{
-				result.Append("-");
+				result.Append("-> ");
 			}
 
 			return result.ToString();

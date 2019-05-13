@@ -42,7 +42,9 @@ Available Actions:
 				Console.WriteLine("=== Binary Tree Selected ===");
 				int length = ConsoleExtensions.GetIntNumber(30, 10);
 
-				int[] source = RandomGenerator.GetRandomIntArray(16, 1, length);
+				int[] source = new int[]
+				{ 4, 4, 10, 3, 14, 7, 13, 5, 9, 8, 9, 9, 15, 8, 2, 5, 10, 4, 11, 10, 7, 9, 11, 15, 9 }; 
+				//RandomGenerator.GetRandomIntArray(16, 1, length);
 				Console.WriteLine($@"
 ===========================================================
 | Initial array: {source.Represent()}
