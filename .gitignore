@@ -1,9 +1,3 @@
-BinarySearch/.vs/BinarySearch/v15/
-BinarySearch/BinarySearch/bin/
-BinarySearch/BinarySearch/obj/
-SelectionSort/.vs/
-SelectionSort/SelectionSort/bin/
-SelectionSort/SelectionSort/obj/
-CallStack/.vs/
-CallStack/CallStack/obj/
-CallStack/CallStack/bin/
+*.vs/
+*bin/
+*obj/
