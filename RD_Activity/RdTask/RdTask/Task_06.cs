@@ -10,11 +10,12 @@ namespace RdTask
 		// отсортированных коллекции одинакового типа в новую коллекцию того же типа,
 		// которя так же будет отсортировнна.
 		// Готовые методы LINQ исопользовать запрещено.
-		public static IEnumerable<T> UnionSort<T>(this IEnumerable<T> main, IEnumerable<T> second, Func<T, T, bool> comporator)
+		public static IEnumerable<T> UnionSort<T>(this IEnumerable<T> main, IEnumerable<T> second)
+			where T: IComparable<T>
 		{
 			//throw new NotImplementedException();
 
-			if (main == null || second == null || comporator == null)
+			if (main == null || second == null)
 			{
 				throw new ArgumentNullException();
 			}
@@ -33,7 +34,7 @@ namespace RdTask
 			{
 				if (mainMovedNext && secondMovedNext)
 				{
-					if (comporator(mainIterator.Current, secondIterator.Current))
+					if (mainIterator.Current.CompareTo(secondIterator.Current) == 1)
 					{
 						result.Add(secondIterator.Current);
 						secondMovedNext = secondIterator.MoveNext();

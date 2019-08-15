@@ -1,6 +1,8 @@
-﻿namespace Source.Entities
+﻿using System;
+
+namespace Source.Entities
 {
-	public class Employee
+	public class Employee : IComparable<Employee>
 	{
 		public string Name { get; set; }
 		public int MonyPerHour { get; set; }
@@ -28,6 +30,16 @@
 				&& MonyPerHour.Equals(another.MonyPerHour)
 				&& Level.Equals(another.Level)
 				&& Gender.Equals(another.Gender);
+		}
+
+		public int CompareTo(Employee other)
+		{
+			if (other == null)
+			{
+				return 1;
+			}
+
+			return MonyPerHour.CompareTo(other.MonyPerHour);
 		}
 	}
 }
