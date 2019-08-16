@@ -66,11 +66,12 @@ namespace RdTask
 		// отсортированных коллекции разного типа в новую коллекцию итогового типа,
 		// которя так же будет отсортировнна.
 		// Готовые методы LINQ исопользовать запрещено.
-		public static IEnumerable<R> UnionSort<T, H, R>(this IEnumerable<T> main, IEnumerable<H> second, Func<T, R> selectorMain, Func<H, R> selectorSecond, Func<T, H, bool> comporator)
+		public static IEnumerable<R> UnionSort<T, H, R>(this IEnumerable<T> main, IEnumerable<H> second, Func<T, R> selectorMain, Func<H, R> selectorSecond)
+			where R: IComparable<R>
 		{
 			//throw new NotImplementedException();
 
-			if (main == null || second == null || selectorMain == null || selectorSecond == null || comporator == null)
+			if (main == null || second == null || selectorMain == null || selectorSecond == null)
 			{
 				throw new ArgumentNullException();
 			}
@@ -89,14 +90,17 @@ namespace RdTask
 			{
 				if (mainMovedNext && secondMovedNext)
 				{
-					if (comporator(mainIterator.Current, secondIterator.Current))
+					var resultMain = selectorMain(mainIterator.Current);
+					var resultSecond = selectorSecond(secondIterator.Current);
+
+					if (resultMain.CompareTo(resultSecond) == 1)
 					{
-						result.Add(selectorSecond(secondIterator.Current));
+						result.Add(resultSecond);
 						secondMovedNext = secondIterator.MoveNext();
 					}
 					else
 					{
-						result.Add(selectorMain(mainIterator.Current));
+						result.Add(resultMain);
 						mainMovedNext = mainIterator.MoveNext();
 					}
 				}

@@ -87,7 +87,7 @@ namespace NUnitTestTasks
 		[Test]
 		public void Test_06_02_EmployeeFirst_HaveValue()
 		{
-			var result = CustomLINQ.EmployeesSortedByMoney.UnionSort(CustomLINQ.FrilancersSortedByMoney, Test_06_02_Data.EmployeeSelector, Test_06_02_Data.FreelancerSelector, Test_06_02_Data.EmployeeFreelancerComporator);
+			var result = CustomLINQ.EmployeesSortedByMoney.UnionSort(CustomLINQ.FrilancersSortedByMoney, Test_06_02_Data.EmployeeSelector, Test_06_02_Data.FreelancerSelector);
 			
 			Assert.IsTrue(result != null);
 		}
@@ -95,7 +95,7 @@ namespace NUnitTestTasks
 		[Test]
 		public void Test_06_02_FreelancerFirst_HaveValue()
 		{
-			var result = CustomLINQ.FrilancersSortedByMoney.UnionSort(CustomLINQ.EmployeesSortedByMoney, Test_06_02_Data.FreelancerSelector, Test_06_02_Data.EmployeeSelector, Test_06_02_Data.FreelancerEmployeeComporator);
+			var result = CustomLINQ.FrilancersSortedByMoney.UnionSort(CustomLINQ.EmployeesSortedByMoney, Test_06_02_Data.FreelancerSelector, Test_06_02_Data.EmployeeSelector);
 			
 			Assert.IsTrue(result != null);
 		}
@@ -103,7 +103,7 @@ namespace NUnitTestTasks
 		[Test]
 		public void Test_06_02_EmployeeFirst_ReturnAny()
 		{
-			var result = CustomLINQ.EmployeesSortedByMoney.UnionSort(CustomLINQ.FrilancersSortedByMoney, Test_06_02_Data.EmployeeSelector, Test_06_02_Data.FreelancerSelector, Test_06_02_Data.EmployeeFreelancerComporator);
+			var result = CustomLINQ.EmployeesSortedByMoney.UnionSort(CustomLINQ.FrilancersSortedByMoney, Test_06_02_Data.EmployeeSelector, Test_06_02_Data.FreelancerSelector);
 			
 			Assert.IsTrue(result.Any());
 		}
@@ -111,7 +111,7 @@ namespace NUnitTestTasks
 		[Test]
 		public void Test_06_02_FreelancerFirst_ReturnAny()
 		{
-			var result = CustomLINQ.FrilancersSortedByMoney.UnionSort(CustomLINQ.EmployeesSortedByMoney, Test_06_02_Data.FreelancerSelector, Test_06_02_Data.EmployeeSelector, Test_06_02_Data.FreelancerEmployeeComporator);
+			var result = CustomLINQ.FrilancersSortedByMoney.UnionSort(CustomLINQ.EmployeesSortedByMoney, Test_06_02_Data.FreelancerSelector, Test_06_02_Data.EmployeeSelector);
 			
 			Assert.IsTrue(result.Any());
 		}
@@ -120,7 +120,7 @@ namespace NUnitTestTasks
 		public void Test_06_02_EmployeeFirst_ResultHasLengthOfBothSequence()
 		{
 			var expected = CustomLINQ.EmployeesSortedByMoney.Count() + CustomLINQ.FrilancersSortedByMoney.Count();
-			var actual = CustomLINQ.EmployeesSortedByMoney.UnionSort(CustomLINQ.FrilancersSortedByMoney, Test_06_02_Data.EmployeeSelector, Test_06_02_Data.FreelancerSelector, Test_06_02_Data.EmployeeFreelancerComporator).Count();
+			var actual = CustomLINQ.EmployeesSortedByMoney.UnionSort(CustomLINQ.FrilancersSortedByMoney, Test_06_02_Data.EmployeeSelector, Test_06_02_Data.FreelancerSelector).Count();
 
 			Assert.AreEqual(expected, actual);
 		}
@@ -129,7 +129,7 @@ namespace NUnitTestTasks
 		public void Test_06_02_FreelancerFirst_ResultHasLengthOfBothSequence()
 		{
 			var expected = CustomLINQ.EmployeesSortedByMoney.Count() + CustomLINQ.FrilancersSortedByMoney.Count();
-			var actual = CustomLINQ.FrilancersSortedByMoney.UnionSort(CustomLINQ.EmployeesSortedByMoney, Test_06_02_Data.FreelancerSelector, Test_06_02_Data.EmployeeSelector, Test_06_02_Data.FreelancerEmployeeComporator).Count();
+			var actual = CustomLINQ.FrilancersSortedByMoney.UnionSort(CustomLINQ.EmployeesSortedByMoney, Test_06_02_Data.FreelancerSelector, Test_06_02_Data.EmployeeSelector).Count();
 
 			Assert.AreEqual(expected, actual);
 		}
@@ -137,7 +137,7 @@ namespace NUnitTestTasks
 		[Test]
 		public void Test_06_02_EmployeeFirst_ResultContainBothSequence()
 		{
-			var actual = CustomLINQ.EmployeesSortedByMoney.UnionSort(CustomLINQ.FrilancersSortedByMoney, Test_06_02_Data.EmployeeSelector, Test_06_02_Data.FreelancerSelector, Test_06_02_Data.EmployeeFreelancerComporator);
+			var actual = CustomLINQ.EmployeesSortedByMoney.UnionSort(CustomLINQ.FrilancersSortedByMoney, Test_06_02_Data.EmployeeSelector, Test_06_02_Data.FreelancerSelector);
 
 			Assert.IsTrue(actual.All(r => CustomLINQ.EmployeesSortedByMoney.Any(e => e.MonyPerHour == r.MonyPerHour) || CustomLINQ.FrilancersSortedByMoney.Any(f => f.MonyPerHour == r.MonyPerHour)));
 		}
@@ -145,7 +145,7 @@ namespace NUnitTestTasks
 		[Test]
 		public void Test_06_02_FreelancerFirst_ResultContainBothSequence()
 		{
-			var actual = CustomLINQ.FrilancersSortedByMoney.UnionSort(CustomLINQ.EmployeesSortedByMoney, Test_06_02_Data.FreelancerSelector, Test_06_02_Data.EmployeeSelector, Test_06_02_Data.FreelancerEmployeeComporator);
+			var actual = CustomLINQ.FrilancersSortedByMoney.UnionSort(CustomLINQ.EmployeesSortedByMoney, Test_06_02_Data.FreelancerSelector, Test_06_02_Data.EmployeeSelector);
 
 			Assert.IsTrue(actual.All(r => CustomLINQ.EmployeesSortedByMoney.Any(e => e.MonyPerHour == r.MonyPerHour) || CustomLINQ.FrilancersSortedByMoney.Any(f => f.MonyPerHour == r.MonyPerHour)));
 		}
@@ -167,7 +167,7 @@ namespace NUnitTestTasks
 
 			expected = expected.OrderBy(a => a.MonyPerHour).ToList();
 
-			var actual = CustomLINQ.EmployeesSortedByMoney.UnionSort(CustomLINQ.FrilancersSortedByMoney, Test_06_02_Data.EmployeeSelector, Test_06_02_Data.FreelancerSelector, Test_06_02_Data.EmployeeFreelancerComporator);
+			var actual = CustomLINQ.EmployeesSortedByMoney.UnionSort(CustomLINQ.FrilancersSortedByMoney, Test_06_02_Data.EmployeeSelector, Test_06_02_Data.FreelancerSelector);
 
 			Assert.IsTrue(expected.SequenceEqual(actual));
 		}
@@ -189,14 +189,14 @@ namespace NUnitTestTasks
 
 			expected = expected.OrderBy(a => a.MonyPerHour).ToList();
 
-			var actual = CustomLINQ.FrilancersSortedByMoney.UnionSort(CustomLINQ.EmployeesSortedByMoney, Test_06_02_Data.FreelancerSelector, Test_06_02_Data.EmployeeSelector, Test_06_02_Data.FreelancerEmployeeComporator);
+			var actual = CustomLINQ.FrilancersSortedByMoney.UnionSort(CustomLINQ.EmployeesSortedByMoney, Test_06_02_Data.FreelancerSelector, Test_06_02_Data.EmployeeSelector);
 
 			Assert.IsTrue(expected.SequenceEqual(actual));
 		}
 
 		private void ExceptionerTask_06_02()
 		{
-			CustomLINQ.EmployeesSortedByMoney.UnionSort(CustomLINQ.FrilancersSortedByMoney, Test_06_02_Data.EmployeeSelector, Test_06_02_Data.FreelancerSelector, Test_06_02_Data.EmployeeFreelancerComporator);
+			CustomLINQ.EmployeesSortedByMoney.UnionSort(CustomLINQ.FrilancersSortedByMoney, Test_06_02_Data.EmployeeSelector, Test_06_02_Data.FreelancerSelector);
 		}
 		#endregion
 	}
@@ -226,9 +226,5 @@ namespace NUnitTestTasks
 			MonyPerHour = e.MonyPerHour,
 			WorkerType = WorkerType.Freelancer
 		};
-
-		public static Func<Employee, Freelancer, bool> EmployeeFreelancerComporator = (e, f) => e.MonyPerHour > f.MonyPerHour;
-
-		public static Func<Freelancer, Employee, bool> FreelancerEmployeeComporator = (f, e) => f.MonyPerHour > e.MonyPerHour;
 	}
 }
