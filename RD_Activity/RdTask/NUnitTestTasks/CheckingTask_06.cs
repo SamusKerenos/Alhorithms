@@ -157,11 +157,15 @@ namespace NUnitTestTasks
 			{
 				WorkerType = WorkerType.Employee,
 				MonyPerHour = e.MonyPerHour
-			}).Union(CustomLINQ.FrilancersSortedByMoney.Select(f => new MonyAnaliticalUnit()
+			}).ToList();
+
+			expected.AddRange(CustomLINQ.FrilancersSortedByMoney.Select(f => new MonyAnaliticalUnit()
 			{
 				WorkerType = WorkerType.Freelancer,
 				MonyPerHour = f.MonyPerHour
-			})).OrderBy(a => a.MonyPerHour).ToList();
+			}));
+
+			expected = expected.OrderBy(a => a.MonyPerHour).ToList();
 
 			var actual = CustomLINQ.EmployeesSortedByMoney.UnionSort(CustomLINQ.FrilancersSortedByMoney, Test_06_02_Data.EmployeeSelector, Test_06_02_Data.FreelancerSelector, Test_06_02_Data.EmployeeFreelancerComporator);
 
@@ -171,15 +175,19 @@ namespace NUnitTestTasks
 		[Test]
 		public void Test_06_02_FreelancerFirst_Positive()
 		{
-			var expected = CustomLINQ.EmployeesSortedByMoney.Select(e => new MonyAnaliticalUnit()
-			{
-				WorkerType = WorkerType.Employee,
-				MonyPerHour = e.MonyPerHour
-			}).Union(CustomLINQ.FrilancersSortedByMoney.Select(f => new MonyAnaliticalUnit()
+			var expected = CustomLINQ.FrilancersSortedByMoney.Select(e => new MonyAnaliticalUnit()
 			{
 				WorkerType = WorkerType.Freelancer,
+				MonyPerHour = e.MonyPerHour
+			}).ToList();
+
+			expected.AddRange(CustomLINQ.EmployeesSortedByMoney.Select(f => new MonyAnaliticalUnit()
+			{
+				WorkerType = WorkerType.Employee,
 				MonyPerHour = f.MonyPerHour
-			})).OrderBy(a => a.MonyPerHour).ToList();
+			}));
+
+			expected = expected.OrderBy(a => a.MonyPerHour).ToList();
 
 			var actual = CustomLINQ.FrilancersSortedByMoney.UnionSort(CustomLINQ.EmployeesSortedByMoney, Test_06_02_Data.FreelancerSelector, Test_06_02_Data.EmployeeSelector, Test_06_02_Data.FreelancerEmployeeComporator);
 
