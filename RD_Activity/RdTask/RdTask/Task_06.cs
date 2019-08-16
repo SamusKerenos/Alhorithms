@@ -66,6 +66,12 @@ namespace RdTask
 		// отсортированных коллекции разного типа в новую коллекцию итогового типа,
 		// которя так же будет отсортировнна.
 		// Готовые методы LINQ исопользовать запрещено.
+		public static IEnumerable<R> UnionSort<T, H, R>(this IEnumerable<T> main, IEnumerable<H> second, Func<T, R> selectorMain, Func<H, R> selectorSecond, Func<T, H, bool> THcomporator)
+		{
+			List<R> result = new List<R>();
+			
+			return result;
+		}
 		#endregion
 	}
 }
