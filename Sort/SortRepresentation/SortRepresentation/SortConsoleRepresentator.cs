@@ -1,4 +1,4 @@
-﻿using SelectionSort;
+﻿using Sort;
 using SourceAndExtensions;
 using System;
 
@@ -12,7 +12,6 @@ namespace SortRepresentation
 
 			int length = ConsoleExtensions.GetIntNumber(50, 5);
 			int[] source = RandomGenerator.GetRandomIntArray(60, 0, length);
-			int[] sorted = new int[length];
 
 			Console.WriteLine($@"
 =========================================
@@ -27,20 +26,12 @@ namespace SortRepresentation
 
 			if (choice == 1)
 			{
-				Console.WriteLine($@"
-========================================
-| Descending Sort Selected             |
-========================================");
-				sorted = sorter.Descending(source);
+				sorter.Descending(source);
 			}
 
 			if (choice == 2)
 			{
-				Console.WriteLine($@"
-========================================
-| Ascending Sort Selected              |
-========================================");
-				sorted = sorter.Ascending(source);
+				sorter.Ascending(source);
 			}
 
 			Console.ForegroundColor = ConsoleColor.Cyan;
@@ -49,7 +40,7 @@ namespace SortRepresentation
 
 			Console.WriteLine($@"
 ========================================
-|     Result is: {sorted.Represent()}
+|     Result is: {source.Represent()}
 ========================================");
 		}
 	}

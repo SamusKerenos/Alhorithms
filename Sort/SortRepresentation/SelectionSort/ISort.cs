@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SelectionSort
+namespace Sort
 {
 	public interface ISort
 	{
 		string Title { get; }
-		StringBuilder Description { get; }
-		int[] Descending(int[] source);
-		int[] Ascending(int[] source);
+		string Description { get; }
+		void Descending(int[] source);
+		void Ascending(int[] source);
 	}
 }

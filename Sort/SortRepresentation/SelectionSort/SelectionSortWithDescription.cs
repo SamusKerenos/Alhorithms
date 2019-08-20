@@ -1,78 +1,54 @@
 ﻿using System.Text;
 
-namespace SelectionSort
+namespace Sort
 {
 	public class SelectionSortWithDescription : ISort
 	{
 		public string Title => "=== Selection Sort Representation ===";
 
-		public StringBuilder Description => new StringBuilder();
+		public string Description { get; private set; }
 
-		public int[] Descending(int[] source)
+		public void Descending(int[] source)
 		{
-			return Sort(source, false);
+			Sort(source, false);
 		}
 
-		public int[] Ascending(int[] source)
+		public void Ascending(int[] source)
 		{
-			return Sort(source, true);
+			Sort(source, true);
 		}
 
-		private int[] Sort(int[] source, bool isAscending)
+		private void Sort(int[] source, bool isAscending)
 		{
 			string sortRuleName = isAscending ? "ASCENDING" : "DESCENDING";
 
-			Description.Append($@"
+			Description = $@"
 =======================================
 |   {sortRuleName,10} sort with description  |
+=============================================================
+| 1. Find value which most applicable to sorting direction. |
+| 2. Change this value with first position value in array.  |
+| 3. Repeat for not sorted part of array.                   |
+=============================================================
+| Complexity is: O(n^2)               |
 =======================================
-| We iterate over the result array.   |
-| And for each result element         |
-| we iterate over the source array    |
-| to find value which which most      |
-| applicable for our sort rule.       |
-| When we find it, we change value    |
-| in source array to value which was  |
-| in current element of result array  |
-| before. Every iteration over result |
-| we reduse source array to one item. |
-| =F mean that we find ellement       |
-=======================================
-");
-			int[] result = new int[source.Length];
-
-			for (int i = 0; i < result.Length; i++)
+";
+			for (int i = 0; i < source.Length; i++)
 			{
-				result[i] = source[i];
-				Description.AppendLine($@"
-First checked value is: {result[i]} sort rule is: {sortRuleName} source length is: {source.Length - (i + 1)}");
-
 				for (int j = i + 1; j < source.Length; j++)
 				{
-					Description.Append($" -check: {j + 1}");
-					bool match = false;
-					if (isAscending)
-					{
-						match = result[i] > source[j];
-					}
-					else
-					{
-						match = result[i] < source[j];
-					}
+					bool match = isAscending
+						? source[i] > source[j]
+						: source[i] < source[j];
 
 					if (match)
 					{
-						Description.Append(" =F");
-						int mem = result[i];
-						result[i] = source[j];
+						int mem = source[i];
+						source[i] = source[j];
 						source[j] = mem;
 					}
 				}
-				Description.AppendLine(@"
-------------------------------------------------------------------------------------");
 			}
-
-			return result;
 		}
 	}
 }

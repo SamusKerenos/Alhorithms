@@ -1,4 +1,4 @@
-﻿using SelectionSort;
+﻿using Sort;
 using SourceAndExtensions;
 using System;
 
@@ -8,25 +8,31 @@ namespace SortRepresentation
 	{
 		static void Main()
 		{
-			int[] available = new int[] { 1, 2 };
 			int choise = 0;
-
 			do
 			{
 				Console.WriteLine($@"
 =========================================
 | Available Representations:            |
 | 1. Selection Sort                     |
-| 2. Exit                               |
+| 2. Insertion Sort                     |
+| 3. Exit                               |
 =========================================
 ");
-				choise = ConsoleExtensions.GetIntNumber(2, 1);
+				choise = ConsoleExtensions.GetIntNumber(3, 1);
 
-				if (choise == 1)
+				switch (choise)
 				{
-					SortConsoleRepresentator.Represent(new SelectionSortWithDescription());
+					case 1:
+						SortConsoleRepresentator.Represent(new SelectionSortWithDescription());
+						break;
+					case 2:
+						SortConsoleRepresentator.Represent(new InsertionSortWithDescription());
+						break;
+					default:
+						break;
 				}
-			} while (choise != 2);
+			} while (choise != 3);
 		}
 	}
 }
