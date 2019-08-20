@@ -2,9 +2,11 @@
 
 namespace SelectionSort
 {
-	public class SelectionSortWithDescription
+	public class SelectionSortWithDescription : ISort
 	{
-		public StringBuilder Description { get; } = new StringBuilder();
+		public string Title => "=== Selection Sort Representation ===";
+
+		public StringBuilder Description => new StringBuilder();
 
 		public int[] Descending(int[] source)
 		{

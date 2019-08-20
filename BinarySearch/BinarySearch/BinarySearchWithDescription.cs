@@ -14,12 +14,17 @@ namespace BinarySearch
 
 			do
 			{
-				Description.AppendLine($"We enter: {source.NameStringRepresent()}");
 				int middleIndex = source.Length / 2;
-				Description.AppendLine($"We define the index of middle element: {middleIndex}");
-
 				int comparer = source[middleIndex].Name.ToLower().CompareTo(searchedName.ToLower());
-				Description.AppendLine($"We compare middle element name: {source[middleIndex].Name} \nwith element which we want to find: {searchedName}");
+
+				Description.Append($@"
+======================================
+| We enter: {source.NameStringRepresent()}
+| We define the index of middle element: {middleIndex}
+| We compare middle element name: {source[middleIndex].Name} 
+| with element which we want to find: {searchedName}
+======================================
+");
 
 				if (comparer == 0)
 				{

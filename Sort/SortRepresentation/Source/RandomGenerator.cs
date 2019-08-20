@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace SelectionSort
+namespace SourceAndExtensions
 {
-	internal class RandomGenerator
+	public class RandomGenerator
 	{
 		private static Random _engin = new Random(DateTime.Now.Millisecond);
 
