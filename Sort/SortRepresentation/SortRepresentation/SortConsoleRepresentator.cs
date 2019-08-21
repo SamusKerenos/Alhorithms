@@ -8,13 +8,13 @@ namespace SortRepresentation
 	{
 		public static void Represent(ISort sorter)
 		{
-			Console.WriteLine(sorter.Title);
-
+			string _sortRuleName = string.Empty;
 			int length = ConsoleExtensions.GetIntNumber(50, 5);
 			int[] source = RandomGenerator.GetRandomIntArray(60, 0, length);
 
 			Console.WriteLine($@"
 =========================================
+| Alhorithm: {sorter.Title}
 | Initial array: {source.Represent()}
 =========================================
 | Available Actions:                    |
@@ -22,23 +22,23 @@ namespace SortRepresentation
 | 2. Sort generated array by ascending  |
 =========================================
 ");
-			int choice = ConsoleExtensions.GetIntNumber(2, 1);
-
-			if (choice == 1)
+			switch (ConsoleExtensions.GetIntNumber(2, 1))
 			{
-				sorter.Descending(source);
+				case 1:
+					_sortRuleName = "DESCENDING";
+					sorter.Descending(source);
+					break;
+				case 2:
+					_sortRuleName = "ASCENDING";
+					sorter.Ascending(source);
+					break;
+				default:
+					break;
 			}
-
-			if (choice == 2)
-			{
-				sorter.Ascending(source);
-			}
-
-			Console.ForegroundColor = ConsoleColor.Cyan;
-			Console.WriteLine(sorter.Description);
-			Console.ResetColor();
 
 			Console.WriteLine($@"
+========================================
+|  {_sortRuleName,10} sort with description  |
 ========================================
 |     Result is: {source.Represent()}
 ========================================");

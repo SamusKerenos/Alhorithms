@@ -47,8 +47,9 @@ namespace Tests
 		{
 			get
 			{
-				yield return new TestCaseData(new SelectionSortWithDescription());
-				yield return new TestCaseData(new InsertionSortWithDescription());
+				yield return new TestCaseData(new SelectionSort());
+				yield return new TestCaseData(new InsertionSort());
+				yield return new TestCaseData(new MerdgeSort());
 			}
 		}
 	}
