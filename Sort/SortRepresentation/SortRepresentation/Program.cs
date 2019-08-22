@@ -12,15 +12,17 @@ namespace SortRepresentation
 			do
 			{
 				Console.WriteLine($@"
-===================================
-| Available Representations:      |
-| 1. Selection Sort               |
-| 2. Insertion Sort               |
-| 3. Merdge Sort                  |
-| 4. Exit                         |
-===================================
+==============================
+| Available Representations: |
+| 1. Selection Sort          |
+| 2. Insertion Sort          |
+| 3. Merdge Sort             |
+|----------------------------|
+| 4. Clear Console           |
+| 5. Exit                    |
+==============================
 ");
-				choise = ConsoleExtensions.GetIntNumber(4, 1);
+				choise = ConsoleExtensions.GetIntNumber(5, 1);
 
 				switch (choise)
 				{
@@ -33,10 +35,13 @@ namespace SortRepresentation
 					case 3:
 						SortConsoleRepresentator.Represent(new MerdgeSort());
 						break;
+					case 4:
+						Console.Clear();
+						break;
 					default:
 						break;
 				}
-			} while (choise != 4);
+			} while (choise != 5);
 		}
 	}
 }
