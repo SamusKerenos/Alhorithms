@@ -16,7 +16,7 @@ namespace Sort
 			Sort(source, (notSortedElement, alreadySortedElement) => notSortedElement < alreadySortedElement);
 		}
 
-		private void Sort(int[] source, Func<int, int, bool> shouldMoveSortedElement)
+		private void Sort(int[] source, Func<int, int, bool> shouldMoveSortedElementToRight)
 		{
 			for (int i = 0; i < source.Length; i++)
 			{
@@ -25,14 +25,18 @@ namespace Sort
 				{
 					// we assume that all elements before i position
 					// we iterate over sorted part of source array 
-					// add move sorted element to insert 
+					// add move sorted element to right to insert 
 					// element from i position of source array
-					if (shouldMoveSortedElement(source[i], source[j]))
+					if (shouldMoveSortedElementToRight(source[i], source[j]))
 					{
 						int mem = source[i];
 						source[i] = source[j];
 						source[j] = mem;
 					}
+
+					// as a result of this iteration 
+					// we increase sorted part (left part)
+					// of our array to one element
 				}
 			}
 		}

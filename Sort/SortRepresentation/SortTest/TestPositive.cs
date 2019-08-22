@@ -10,11 +10,13 @@ namespace Tests
 	public class TestPositive
 	{
 		private int[] _source;
+		private int[] _littleSource;
 
 		[SetUp]
 		public void Setup()
 		{
 			_source = RandomGenerator.GetRandomIntArray(60, 0, 60);
+			_littleSource = RandomGenerator.GetRandomIntArray(60, 0, 6);
 		}
 
 		[Test]
@@ -39,6 +41,29 @@ namespace Tests
 
 			CollectionAssert.AreEqual(expected, actual);
 		}
+
+		[Test]
+		[TestCaseSource(typeof(Test_Data), nameof(Test_Data.Sorters))]
+		public void TestLittleAscending(ISort sorter)
+		{
+			int[] actual = _littleSource.Select(i => i).ToArray();
+			int[] expected = _littleSource.OrderBy(i => i).ToArray();
+			sorter.Ascending(actual);
+
+			CollectionAssert.AreEqual(expected, actual);
+		}
+
+		[Test]
+		[TestCaseSource(typeof(Test_Data), nameof(Test_Data.Sorters))]
+		public void TestLittleDescending(ISort sorter)
+		{
+
+			int[] actual = _littleSource.Select(i => i).ToArray();
+			int[] expected = _littleSource.OrderByDescending(i => i).ToArray();
+			sorter.Descending(actual);
+
+			CollectionAssert.AreEqual(expected, actual);
+		}
 	}
 
 	public static class Test_Data
@@ -50,6 +75,7 @@ namespace Tests
 				yield return new TestCaseData(new SelectionSort());
 				yield return new TestCaseData(new InsertionSort());
 				yield return new TestCaseData(new MerdgeSort());
+				yield return new TestCaseData(new BubbleSort());
 			}
 		}
 	}

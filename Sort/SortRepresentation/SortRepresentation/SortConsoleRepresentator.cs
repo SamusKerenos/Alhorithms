@@ -38,7 +38,7 @@ namespace SortRepresentation
 
 			Console.WriteLine($@"
 ========================================
-|  {_sortRuleName,10} sort with description  |
+|  {_sortRuleName,10} sort with description    |
 ========================================
 |     Result is: {source.Represent()}
 ========================================");
