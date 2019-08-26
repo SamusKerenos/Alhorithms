@@ -22,15 +22,12 @@ namespace Sort
 			// this element can be random, or can be selected by some function
 			// but in should located on sorting part of source array
 
-			#region iterate to left from the base element
+			#region iterate to left from the base element till start index
 			if (baseIndex > startIndex)
 			{
-				//we sort part of source array only if it length greate then one
-
 				for (int i = baseIndex - 1; i >= startIndex; i--)
 				{
 					// here we iterate to left direction from the base element
-					// to the first element of source array
 					// and move all element which should be to the right of base element
 					if (elementShouldBeAfterBase(source[i], source[baseIndex]))
 					{
@@ -76,12 +73,13 @@ namespace Sort
 			}
 			#endregion
 			
-			#region iterate to right from the base element
+			#region iterate to right from the base element till end index
 			if (baseIndex < endIndex)
 			{
-				//this iteration need only when 
 				for (int i = baseIndex + 1; i <= endIndex; i++)
 				{
+					// here we iterate to right direction from the base element
+					// and move all element which should be to the right of base element
 					if (!elementShouldBeAfterBase(source[i], source[baseIndex]))
 					{
 						if (i == baseIndex + 1)
