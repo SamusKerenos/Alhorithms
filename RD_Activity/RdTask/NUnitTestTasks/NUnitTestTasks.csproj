@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="CheckingTask_05.cs" />
     <Compile Include="CheckingTask_06.cs" />
+    <Compile Include="Checking_Task_07.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
