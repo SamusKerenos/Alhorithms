@@ -9,8 +9,8 @@ namespace SortRepresentation
 		public static void Represent(ISort sorter)
 		{
 			string _sortRuleName = string.Empty;
-			int length = ConsoleExtensions.GetIntNumber(50, 5);
-			int[] source = RandomGenerator.GetRandomIntArray(60, 0, length);
+			int length = ConsoleExtensions.GetIntNumber(30, 5);
+			int[] source = RandomGenerator.GetRandomIntArray(100, 0, length);
 
 			Console.WriteLine($@"
 =========================================

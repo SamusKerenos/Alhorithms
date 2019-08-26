@@ -18,12 +18,13 @@ namespace SortRepresentation
 | 2. Insertion Sort          |
 | 3. Merdge Sort             |
 | 4. Bubble Sort             |
+| 5. Quick Sort              |
 |----------------------------|
-| 5. Clear Console           |
-| 6. Exit                    |
+| 6. Clear Console           |
+| 7. Exit                    |
 ==============================
 ");
-				choise = ConsoleExtensions.GetIntNumber(6, 1);
+				choise = ConsoleExtensions.GetIntNumber(7, 1);
 
 				switch (choise)
 				{
@@ -40,12 +41,15 @@ namespace SortRepresentation
 						SortConsoleRepresentator.Represent(new BubbleSort());
 						break;
 					case 5:
+						SortConsoleRepresentator.Represent(new QuickSort());
+						break;
+					case 6:
 						Console.Clear();
 						break;
 					default:
 						break;
 				}
-			} while (choise != 6);
+			} while (choise != 7);
 		}
 	}
 }
