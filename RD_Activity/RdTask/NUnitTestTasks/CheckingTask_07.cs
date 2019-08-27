@@ -7,7 +7,7 @@ using Source.Entities;
 namespace NUnitTestTasks
 {
 	[TestFixture]
-	class Checking_Task_07
+	class CheckingTask_07
 	{
 		private const int _lenght = 30;
 		private int[] _source;

@@ -20,13 +20,14 @@ namespace RdTask
 			Sort(source, (first, second) => first < second);
 		}
 
-		// необходимо тнаписать реализацию алгоритма пузырьковой сортировки,
+		// необходимо написать реализацию указанного в задании алгоритма,
 		// которая будет одинаково подходить как для возрастающей, так и для
 		// убывающей сортировки. Так же необходимо переименовать переменную 
 		// condition таким образом, что бы она отражала суть своего использования
 		// в данном алгоритме
 
 		//private static void Sort(int[] source, Func<int, int, bool> condition)
+
 		private static void Sort(int[] source, Func<int, int, bool> shouldMovElementToRight)
 		{
 			//throw new NotImplementedException();

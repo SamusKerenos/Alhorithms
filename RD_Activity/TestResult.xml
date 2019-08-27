@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" name="query_fdfnks.dll" fullname="C:/Users/Sergey_Nikolskiy/AppData/Local/Temp/LINQPad5/_ukdibikp/query_fdfnks.dll" testcasecount="10" result="Failed" start-time="2019-08-27 04:55:51Z" end-time="2019-08-27 04:55:51Z" duration="0.355963" total="10" passed="0" failed="10" inconclusive="0" skipped="0" asserts="2" random-seed="744407772">
+  <command-line><![CDATA["C:\Users\Sergey_Nikolskiy\AppData\Local\LINQPad\ProcessServer5X86B\LINQPad.UserQuery.exe" "C:/Program Files (x86)/LINQPad5/LINQPad.EXE" "C:/Program Files (x86)/LINQPad5/" "C:/Program Files (x86)/LINQPad5/LINQPad.config" "LINQPad.ukdibikp.Server.1" "ukdibikp" "12964" "True"]]></command-line>
+  <filter />
+  <test-suite type="Assembly" id="1054" name="query_fdfnks.dll" fullname="C:/Users/Sergey_Nikolskiy/AppData/Local/Temp/LINQPad5/_ukdibikp/query_fdfnks.dll" runstate="Runnable" testcasecount="10" result="Failed" site="Child" start-time="2019-08-27 04:55:51Z" end-time="2019-08-27 04:55:51Z" duration="0.355963" total="10" passed="0" failed="10" warnings="0" inconclusive="0" skipped="0" asserts="2">
+    <environment framework-version="3.7.1.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.18362.0" platform="Win32NT" cwd="E:\Alhorithms\RD_Activity" machine-name="EPRURYAW0801" user="Sergey_Nikolskiy" user-domain="MOSCOW" culture="ru-RU" uiculture="en-US" os-architecture="x86" />
+    <settings>
+      <setting name="WorkDirectory" value="E:\Alhorithms\RD_Activity" />
+      <setting name="NumberOfTestWorkers" value="8" />
+    </settings>
+    <properties>
+      <property name="_PID" value="20632" />
+      <property name="_APPDOMAIN" value="LINQPad Query Server" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="TestFixture" id="1043" name="UserQuery+Runner+ConsoleUtilsTests" fullname="UserQuery+Runner+ConsoleUtilsTests" classname="UserQuery+Runner+ConsoleUtilsTests" runstate="Runnable" testcasecount="10" result="Failed" site="Child" start-time="2019-08-27 04:55:51Z" end-time="2019-08-27 04:55:51Z" duration="0.332308" total="10" passed="0" failed="10" warnings="0" inconclusive="0" skipped="0" asserts="2">
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-case id="1046" name="Test_07_Ascending_HaveValue" fullname="UserQuery+Runner+ConsoleUtilsTests.Test_07_Ascending_HaveValue" methodname="Test_07_Ascending_HaveValue" classname="UserQuery+Runner+ConsoleUtilsTests" runstate="Runnable" seed="1878945383" result="Failed" label="Error" start-time="2019-08-27 04:55:51Z" end-time="2019-08-27 04:55:51Z" duration="0.000797" asserts="0">
+        <failure>
+          <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+          <stack-trace><![CDATA[   at Task_07_Sorting.Sort(Int32[] source, Func`3 condition) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 171
+   at Task_07_Sorting.Ascending(Int32[] source) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 154
+   at UserQuery.Runner.ConsoleUtilsTests.Test_07_Ascending_HaveValue() in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 74]]></stack-trace>
+        </failure>
+      </test-case>
+      <test-case id="1044" name="Test_07_Ascending_Implement" fullname="UserQuery+Runner+ConsoleUtilsTests.Test_07_Ascending_Implement" methodname="Test_07_Ascending_Implement" classname="UserQuery+Runner+ConsoleUtilsTests" runstate="Runnable" seed="1602642462" result="Failed" start-time="2019-08-27 04:55:51Z" end-time="2019-08-27 04:55:51Z" duration="0.000876" asserts="1">
+        <failure>
+          <message><![CDATA[  Expected: No Exception to be thrown
+  But was:  <System.NotImplementedException: The method or operation is not implemented.
+   at Task_07_Sorting.Sort(Int32[] source, Func`3 condition) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 171
+   at Task_07_Sorting.Ascending(Int32[] source) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 154
+   at UserQuery.Runner.ConsoleUtilsTests.ExceptionerTask_07_Ascending() in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 139
+   at NUnit.Framework.Constraints.ThrowsConstraint.VoidInvocationDescriptor.Invoke()
+   at NUnit.Framework.Constraints.ThrowsConstraint.ExceptionInterceptor.Intercept(Object invocation)>
+]]></message>
+          <stack-trace><![CDATA[at UserQuery.Runner.ConsoleUtilsTests.Test_07_Ascending_Implement() in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 62
+]]></stack-trace>
+        </failure>
+        <assertions>
+          <assertion result="Failed">
+            <message><![CDATA[  Expected: No Exception to be thrown
+  But was:  <System.NotImplementedException: The method or operation is not implemented.
+   at Task_07_Sorting.Sort(Int32[] source, Func`3 condition) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 171
+   at Task_07_Sorting.Ascending(Int32[] source) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 154
+   at UserQuery.Runner.ConsoleUtilsTests.ExceptionerTask_07_Ascending() in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 139
+   at NUnit.Framework.Constraints.ThrowsConstraint.VoidInvocationDescriptor.Invoke()
+   at NUnit.Framework.Constraints.ThrowsConstraint.ExceptionInterceptor.Intercept(Object invocation)>
+]]></message>
+            <stack-trace><![CDATA[at UserQuery.Runner.ConsoleUtilsTests.Test_07_Ascending_Implement() in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 62
+]]></stack-trace>
+          </assertion>
+        </assertions>
+      </test-case>
+      <test-case id="1052" name="Test_07_Ascending_Positive" fullname="UserQuery+Runner+ConsoleUtilsTests.Test_07_Ascending_Positive" methodname="Test_07_Ascending_Positive" classname="UserQuery+Runner+ConsoleUtilsTests" runstate="Runnable" seed="1562547973" result="Failed" label="Error" start-time="2019-08-27 04:55:51Z" end-time="2019-08-27 04:55:51Z" duration="0.000775" asserts="0">
+        <failure>
+          <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+          <stack-trace><![CDATA[   at Task_07_Sorting.Sort(Int32[] source, Func`3 condition) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 171
+   at Task_07_Sorting.Ascending(Int32[] source) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 154
+   at UserQuery.Runner.ConsoleUtilsTests.Test_07_Ascending_Positive() in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 123]]></stack-trace>
+        </failure>
+      </test-case>
+      <test-case id="1050" name="Test_07_Ascending_ResultHasLengthOfSourceSequence" fullname="UserQuery+Runner+ConsoleUtilsTests.Test_07_Ascending_ResultHasLengthOfSourceSequence" methodname="Test_07_Ascending_ResultHasLengthOfSourceSequence" classname="UserQuery+Runner+ConsoleUtilsTests" runstate="Runnable" seed="2073505912" result="Failed" label="Error" start-time="2019-08-27 04:55:51Z" end-time="2019-08-27 04:55:51Z" duration="0.001086" asserts="0">
+        <failure>
+          <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+          <stack-trace><![CDATA[   at Task_07_Sorting.Sort(Int32[] source, Func`3 condition) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 171
+   at Task_07_Sorting.Ascending(Int32[] source) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 154
+   at UserQuery.Runner.ConsoleUtilsTests.Test_07_Ascending_ResultHasLengthOfSourceSequence() in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 103]]></stack-trace>
+        </failure>
+      </test-case>
+      <test-case id="1048" name="Test_07_Ascending_ReturnAnyInt" fullname="UserQuery+Runner+ConsoleUtilsTests.Test_07_Ascending_ReturnAnyInt" methodname="Test_07_Ascending_ReturnAnyInt" classname="UserQuery+Runner+ConsoleUtilsTests" runstate="Runnable" seed="1456157679" result="Failed" label="Error" start-time="2019-08-27 04:55:51Z" end-time="2019-08-27 04:55:51Z" duration="0.000720" asserts="0">
+        <failure>
+          <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+          <stack-trace><![CDATA[   at Task_07_Sorting.Sort(Int32[] source, Func`3 condition) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 171
+   at Task_07_Sorting.Ascending(Int32[] source) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 154
+   at UserQuery.Runner.ConsoleUtilsTests.Test_07_Ascending_ReturnAnyInt() in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 88]]></stack-trace>
+        </failure>
+      </test-case>
+      <test-case id="1047" name="Test_07_Descending_HaveValue" fullname="UserQuery+Runner+ConsoleUtilsTests.Test_07_Descending_HaveValue" methodname="Test_07_Descending_HaveValue" classname="UserQuery+Runner+ConsoleUtilsTests" runstate="Runnable" seed="1654599302" result="Failed" label="Error" start-time="2019-08-27 04:55:51Z" end-time="2019-08-27 04:55:51Z" duration="0.000658" asserts="0">
+        <failure>
+          <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+          <stack-trace><![CDATA[   at Task_07_Sorting.Sort(Int32[] source, Func`3 condition) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 171
+   at Task_07_Sorting.Descending(Int32[] source) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 160
+   at UserQuery.Runner.ConsoleUtilsTests.Test_07_Descending_HaveValue() in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 81]]></stack-trace>
+        </failure>
+      </test-case>
+      <test-case id="1045" name="Test_07_Descending_Implement" fullname="UserQuery+Runner+ConsoleUtilsTests.Test_07_Descending_Implement" methodname="Test_07_Descending_Implement" classname="UserQuery+Runner+ConsoleUtilsTests" runstate="Runnable" seed="549605140" result="Failed" start-time="2019-08-27 04:55:51Z" end-time="2019-08-27 04:55:51Z" duration="0.000980" asserts="1">
+        <failure>
+          <message><![CDATA[  Expected: No Exception to be thrown
+  But was:  <System.NotImplementedException: The method or operation is not implemented.
+   at Task_07_Sorting.Sort(Int32[] source, Func`3 condition) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 171
+   at Task_07_Sorting.Descending(Int32[] source) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 160
+   at UserQuery.Runner.ConsoleUtilsTests.ExceptionerTask_07_Descending() in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 144
+   at NUnit.Framework.Constraints.ThrowsConstraint.VoidInvocationDescriptor.Invoke()
+   at NUnit.Framework.Constraints.ThrowsConstraint.ExceptionInterceptor.Intercept(Object invocation)>
+]]></message>
+          <stack-trace><![CDATA[at UserQuery.Runner.ConsoleUtilsTests.Test_07_Descending_Implement() in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 68
+]]></stack-trace>
+        </failure>
+        <assertions>
+          <assertion result="Failed">
+            <message><![CDATA[  Expected: No Exception to be thrown
+  But was:  <System.NotImplementedException: The method or operation is not implemented.
+   at Task_07_Sorting.Sort(Int32[] source, Func`3 condition) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 171
+   at Task_07_Sorting.Descending(Int32[] source) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 160
+   at UserQuery.Runner.ConsoleUtilsTests.ExceptionerTask_07_Descending() in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 144
+   at NUnit.Framework.Constraints.ThrowsConstraint.VoidInvocationDescriptor.Invoke()
+   at NUnit.Framework.Constraints.ThrowsConstraint.ExceptionInterceptor.Intercept(Object invocation)>
+]]></message>
+            <stack-trace><![CDATA[at UserQuery.Runner.ConsoleUtilsTests.Test_07_Descending_Implement() in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 68
+]]></stack-trace>
+          </assertion>
+        </assertions>
+      </test-case>
+      <test-case id="1053" name="Test_07_Descending_Positive" fullname="UserQuery+Runner+ConsoleUtilsTests.Test_07_Descending_Positive" methodname="Test_07_Descending_Positive" classname="UserQuery+Runner+ConsoleUtilsTests" runstate="Runnable" seed="1177533959" result="Failed" label="Error" start-time="2019-08-27 04:55:51Z" end-time="2019-08-27 04:55:51Z" duration="0.000640" asserts="0">
+        <failure>
+          <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+          <stack-trace><![CDATA[   at Task_07_Sorting.Sort(Int32[] source, Func`3 condition) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 171
+   at Task_07_Sorting.Descending(Int32[] source) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 160
+   at UserQuery.Runner.ConsoleUtilsTests.Test_07_Descending_Positive() in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 132]]></stack-trace>
+        </failure>
+      </test-case>
+      <test-case id="1051" name="Test_07_Descending_ResultHasLengthOfSourceSequence" fullname="UserQuery+Runner+ConsoleUtilsTests.Test_07_Descending_ResultHasLengthOfSourceSequence" methodname="Test_07_Descending_ResultHasLengthOfSourceSequence" classname="UserQuery+Runner+ConsoleUtilsTests" runstate="Runnable" seed="1167592157" result="Failed" label="Error" start-time="2019-08-27 04:55:51Z" end-time="2019-08-27 04:55:51Z" duration="0.000891" asserts="0">
+        <failure>
+          <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+          <stack-trace><![CDATA[   at Task_07_Sorting.Sort(Int32[] source, Func`3 condition) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 171
+   at Task_07_Sorting.Descending(Int32[] source) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 160
+   at UserQuery.Runner.ConsoleUtilsTests.Test_07_Descending_ResultHasLengthOfSourceSequence() in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 113]]></stack-trace>
+        </failure>
+      </test-case>
+      <test-case id="1049" name="Test_07_Descending_ReturnAnyInt" fullname="UserQuery+Runner+ConsoleUtilsTests.Test_07_Descending_ReturnAnyInt" methodname="Test_07_Descending_ReturnAnyInt" classname="UserQuery+Runner+ConsoleUtilsTests" runstate="Runnable" seed="964158087" result="Failed" label="Error" start-time="2019-08-27 04:55:51Z" end-time="2019-08-27 04:55:51Z" duration="0.000914" asserts="0">
+        <failure>
+          <message><![CDATA[System.NotImplementedException : The method or operation is not implemented.]]></message>
+          <stack-trace><![CDATA[   at Task_07_Sorting.Sort(Int32[] source, Func`3 condition) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 171
+   at Task_07_Sorting.Descending(Int32[] source) in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 160
+   at UserQuery.Runner.ConsoleUtilsTests.Test_07_Descending_ReturnAnyInt() in C:\Users\Sergey_Nikolskiy\AppData\Local\Temp\LINQPad5\_ukdibikp\query_fdfnks.cs:line 95]]></stack-trace>
+        </failure>
+      </test-case>
+    </test-suite>
+  </test-suite>
+</test-run>
