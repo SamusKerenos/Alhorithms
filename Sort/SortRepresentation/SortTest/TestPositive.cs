@@ -48,18 +48,21 @@ namespace Tests
 				yield return new TestCaseData(new MerdgeSort(), 6000);
 				yield return new TestCaseData(new BubbleSort(), 6000);
 				yield return new TestCaseData(new QuickSort(), 6000);
+				yield return new TestCaseData(new CocktailSort(), 6000);
 
 				yield return new TestCaseData(new SelectionSort(), 60);
 				yield return new TestCaseData(new InsertionSort(), 60);
 				yield return new TestCaseData(new MerdgeSort(), 60);
 				yield return new TestCaseData(new BubbleSort(), 60);
 				yield return new TestCaseData(new QuickSort(), 60);
+				yield return new TestCaseData(new CocktailSort(), 60);
 
 				yield return new TestCaseData(new SelectionSort(), 6);
 				yield return new TestCaseData(new InsertionSort(), 6);
 				yield return new TestCaseData(new MerdgeSort(), 6);
 				yield return new TestCaseData(new BubbleSort(), 6);
 				yield return new TestCaseData(new QuickSort(), 6);
+				yield return new TestCaseData(new CocktailSort(), 6);
 			}
 		}
 	}
