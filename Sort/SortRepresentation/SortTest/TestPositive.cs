@@ -9,7 +9,7 @@ namespace Tests
 	[TestFixture]
 	public class TestPositive
 	{
-		private int _max = 100;
+		private int _max = 1000;
 		private int _min = 0;
 
 		[Test]
@@ -63,6 +63,13 @@ namespace Tests
 				yield return new TestCaseData(new BubbleSort(), 6);
 				yield return new TestCaseData(new QuickSort(), 6);
 				yield return new TestCaseData(new CocktailSort(), 6);
+
+				yield return new TestCaseData(new SelectionSort(), 1);
+				yield return new TestCaseData(new InsertionSort(), 1);
+				yield return new TestCaseData(new MerdgeSort(), 1);
+				yield return new TestCaseData(new BubbleSort(), 1);
+				yield return new TestCaseData(new QuickSort(), 1);
+				yield return new TestCaseData(new CocktailSort(), 1);
 			}
 		}
 	}
