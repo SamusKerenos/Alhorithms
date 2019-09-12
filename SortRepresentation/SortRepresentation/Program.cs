@@ -8,10 +8,11 @@ namespace SortRepresentation
 	{
 		static void Main()
 		{
-			int choise = 0;
+			int choise;
+
 			do
 			{
-				Console.WriteLine($@"
+				Console.WriteLine(@"
 ==============================
 | Available Representations: |
 | 1. Selection Sort          |
