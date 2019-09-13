@@ -10,6 +10,8 @@ namespace VarianceRepresentation
 		{
 			int choise;
 
+			Console.SetWindowSize(200, 50);
+
 			do
 			{
 				Console.WriteLine(@"

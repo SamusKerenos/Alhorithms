@@ -9,9 +9,11 @@ namespace VarianceRepresentation
 		{
 			Console.ForegroundColor = concept.Color;
 			
-			concept.Actions();
 			Console.WriteLine(concept.Description);
-			
+			concept.Actions();
+			Console.WriteLine(concept.Explanation);
+
+
 			Console.ForegroundColor = ConsoleColor.Green;
 		}
 	}
