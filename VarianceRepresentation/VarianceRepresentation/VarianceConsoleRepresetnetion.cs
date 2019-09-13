@@ -1,7 +1,5 @@
 ﻿using Concept;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace VarianceRepresentation
 {
@@ -9,7 +7,12 @@ namespace VarianceRepresentation
 	{
 		public static void Represent(IConcept concept)
 		{
-
+			Console.ForegroundColor = concept.Color;
+			
+			concept.Actions();
+			Console.WriteLine(concept.Description);
+			
+			Console.ForegroundColor = ConsoleColor.Green;
 		}
 	}
 }
