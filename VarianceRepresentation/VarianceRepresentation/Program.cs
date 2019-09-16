@@ -15,7 +15,10 @@ namespace VarianceRepresentation
 			do
 			{
 				Console.WriteLine(@"
-==============================
+=============================================================
+| Variance is the abbility of interfaces and methods        |
+| to work with ancestor instead of descendant or vice versa |
+=============================================================
 | Available Representations: |
 | 1. Covariance              |
 | 2. Contrvariance           |

@@ -3,6 +3,6 @@
 	public interface IHouse<T>
 		where T : Animal
 	{
-		T GetAnimal();
+		T Animal { get; }
 	}
 }

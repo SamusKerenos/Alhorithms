@@ -2,7 +2,7 @@
 {
 	public class Cat : Animal
 	{
-		public override string Voice => "Miu";
+		public override string Voice => "say: Miu";
 		public override string Spice => "Cat";
 	}
 }

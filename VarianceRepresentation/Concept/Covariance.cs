@@ -25,14 +25,14 @@ namespace Concept
 ===================================================================================
 | Covariance - enables you to pass a derived type where a base type is expected.  |
 | Covariance is the ability to convert data from a wider to a narrower data type. |
------------------------------------------------------------------------------------
-| COVARIANCE WORK IN        |
-| Generic interfaces        |
-| Generic delegates         |
-| Methods                   |
-| Arrays                    |
-| Interfaces with out types |
-=============================";
+|---------------------------------------------------------------------------------|
+| COVARIANCE WORK IN                         |
+| Delegates                                  |
+| Methods                                    |
+| Arrays                                     |
+| Interfaces with out types ICustom<out T>   |
+| Some native interfaces like IEnumerable<T> |
+==============================================";
 
 		public string Explanation { get; private set; }
 
@@ -61,9 +61,13 @@ namespace Concept
 			Animal[] animalsArrayDogs = _dogs.ToArray();
 			_animalsArray = animalsArrayCat.Union(animalsArrayDogs).ToArray();
 
-			_houseWithAnimalCollection = new IHouseCovariant<Animal>[] { _houseWithCat, _houseWithDog };
+			_houseWithAnimalCollection = new IHouseCovariant<Animal>[] 
+			{ 
+				_houseWithCat,
+				_houseWithDog 
+			};
 
-			_doAction = a => $" {a.Spice}: {a.Name} say: {a.Voice} |";
+			_doAction = a => $" {a.Spice}: {a.Name} {a.Voice} |";
 		}
 
 		public void Actions()
@@ -82,6 +86,7 @@ namespace Concept
 ==============================================================================================================================");
 
 			result.Append(@"
+
 We iterate over the IEnumerable<Animal> and invoce the delegate with signature Func<Animal, string>
 ");
 			foreach (Animal item in _animals)
@@ -90,6 +95,7 @@ We iterate over the IEnumerable<Animal> and invoce the delegate with signature F
 			}
 
 			result.Append(@"
+
 We iterate over the Animal[] and invoce the delegate with signature Func<Animal, string>
 ");
 			foreach (Animal item in _animalsArray)
@@ -98,6 +104,7 @@ We iterate over the Animal[] and invoce the delegate with signature Func<Animal,
 			}
 
 			result.Append(@"
+
 We iterate over the IEnumerable<IHouseCovariant<Animal>> and invoce the delegate with signature Func<Animal, string>
 ");
 			foreach (IHouseCovariant<Animal> item in _houseWithAnimalCollection)
@@ -106,11 +113,7 @@ We iterate over the IEnumerable<IHouseCovariant<Animal>> and invoce the delegate
 			}
 
 			result.Append(@"
-We see the same result
-===========================================================================================================
-");
 
-			result.Append(@"
 We iterate over the IEnumerable<Animal> and transfer item in the AnimalActions.ShowFace(Animal animal) method
 ");
 			foreach (Animal item in _animals)
@@ -119,6 +122,7 @@ We iterate over the IEnumerable<Animal> and transfer item in the AnimalActions.S
 			}
 
 			result.Append(@"
+
 We iterate over the Animal[] and transfer item in the AnimalActions.ShowFace(Animal animal) method
 ");
 			foreach (Animal item in _animalsArray)
@@ -127,6 +131,7 @@ We iterate over the Animal[] and transfer item in the AnimalActions.ShowFace(Ani
 			}
 
 			result.Append(@"
+
 We iterate over the IEnumerable<IHouseCovariant<Animal>> and transfer item in the AnimalActions.ShowFace(Animal animal) method
 ");
 			foreach (IHouseCovariant<Animal> item in _houseWithAnimalCollection)
@@ -135,8 +140,10 @@ We iterate over the IEnumerable<IHouseCovariant<Animal>> and transfer item in th
 			}
 
 			result.Append(@"
-We see the same result
-===========================================================================================================
+
+---------------------------------------------
+| We see the result which contain all items |
+=============================================
 ");
 			Explanation = result.ToString();
 		}

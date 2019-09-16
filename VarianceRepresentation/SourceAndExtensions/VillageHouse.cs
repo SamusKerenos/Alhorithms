@@ -1,17 +1,22 @@
 ﻿namespace SourceAndExtensions
 {
-	public class VillageHouse : IHouse<Dog>
+	public class VillageHouseDog : IHouse<Dog>
 	{
-		private readonly Dog _dog;
+		public Dog Animal { get; }
 
-		public VillageHouse(string name)
+		public VillageHouseDog(Dog dog)
 		{
-			_dog = new Dog() { Name = name };
+			Animal = dog;
 		}
+	}
 
-		public Dog GetAnimal()
+	public class VillageHouseCat : IHouse<Cat>
+	{
+		public Cat Animal { get; }
+
+		public VillageHouseCat(Cat cat)
 		{
-			return _dog;
+		 	Animal = cat;
 		}
 	}
 }
