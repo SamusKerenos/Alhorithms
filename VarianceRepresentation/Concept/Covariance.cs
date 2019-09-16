@@ -8,16 +8,13 @@ namespace Concept
 {
 	public class Covariance : IConcept
 	{
-		private readonly IEnumerable<Cat> _cats;
-		private readonly IEnumerable<Dog> _dogs;
-		private readonly CityHouseCat _houseWithCat;
-		private readonly CityHouseDog _houseWithDog;
-
 		private readonly IEnumerable<Animal> _animals;
 		private readonly Animal[] _animalsArray;
 		private readonly IEnumerable<IHouseCovariant<Animal>> _houseWithAnimalCollection;
 		
 		private readonly Func<Animal, string> _doAction;
+
+		private Animal _animal;
 
 		public ConsoleColor Color => ConsoleColor.Cyan;
 
@@ -27,6 +24,7 @@ namespace Concept
 | Covariance is the ability to convert data from a wider to a narrower data type. |
 |---------------------------------------------------------------------------------|
 | COVARIANCE WORK IN                         |
+| Variable initialization                    |
 | Delegates                                  |
 | Methods                                    |
 | Arrays                                     |
@@ -38,112 +36,94 @@ namespace Concept
 
 		public Covariance()
 		{
-			_cats = new List<Cat>()
+			IEnumerable<Animal> cats = new List<Cat>()
 			{
 				new Cat { Name = "John" },
 				new Cat { Name = "Sarah" }
 			};
-			
-			_dogs = new List<Dog>()
+
+			IEnumerable<Animal> dogs = new List<Dog>()
 			{
 				new Dog { Name = "Abram" },
 				new Dog { Name = "Mariya" }
 			};
 
-			_houseWithCat = new CityHouseCat("Murzic");
-			_houseWithDog = new CityHouseDog("Bobick");
-
-			IEnumerable<Animal> animalsCat = _cats.ToArray();
-			IEnumerable<Animal> animalsDogs = _dogs.ToArray();
-			_animals = animalsCat.Union(animalsDogs);
-			
-			Animal[] animalsArrayCat = _cats.ToArray();
-			Animal[] animalsArrayDogs = _dogs.ToArray();
-			_animalsArray = animalsArrayCat.Union(animalsArrayDogs).ToArray();
-
 			_houseWithAnimalCollection = new IHouseCovariant<Animal>[] 
-			{ 
-				_houseWithCat,
-				_houseWithDog 
+			{
+				new CityHouseCat("Murzic"),
+				new CityHouseDog("Bobick")
 			};
 
-			_doAction = a => $" {a.Spice}: {a.Name} {a.Voice} |";
+			_animals = cats.Union(dogs);
+
+			_animalsArray = cats.ToArray().Union(dogs.ToArray()).ToArray();
+
+			_doAction = a => $"\ndelegate invoked with: {a.Spice}: {a.Name} {a.Voice} |";
 		}
 
 		public void Actions()
 		{
 			StringBuilder result = new StringBuilder();
 			result.Append(@"
-==============================================================================================================================
-| We have this items for work:                                                                                               |
-| IEnumerable<Cat> collection which inintialized by new List<Cat>() { ... }                                                  |
-| IEnumerable<Dog> collection which inintialized by new List<Dog>() { ... }                                                  |
-| IEnumerable<Animal> collection which contain bouth of IEnumerable<Cat> and IEnumerable<Dog> collections                    |
-| Animal[] which initialize by Cat[]                                                                                         |
-| Animal[] which initialize by Dog[]                                                                                         |
-| Animal[] which contain bouth of previous arrays                                                                            |
-| IEnumerable<IHouseCovariant<Animal>> collection which consist of CityHouseCat CityHouseDog items of IHouseCovariant<out T> |
-==============================================================================================================================");
+=======================================================================================
+| We have this items for work:                                                        |
+| IEnumerable<Animal> collection which contain of List<Cat> and List<Dog> collections |
+| Animal[] which contain of two arrays: Cat[] and Dog[] bouth of it use like Animal[] |
+| IEnumerable<IHouseCovariant<Animal>> collection which consist of                    |
+| CityHouseCat CityHouseDog items of IHouseCovariant<out T>                           |
+=======================================================================================");
 
 			result.Append(@"
 
-We iterate over the IEnumerable<Animal> and invoce the delegate with signature Func<Animal, string>
+We iterate over the IEnumerable<Animal>
 ");
 			foreach (Animal item in _animals)
 			{
 				result.Append(_doAction(item));
+				result.Append(AnimalActions.ShowFaceAnimal(item));
 			}
 
 			result.Append(@"
 
-We iterate over the Animal[] and invoce the delegate with signature Func<Animal, string>
+We iterate over the Animal[]
 ");
 			foreach (Animal item in _animalsArray)
 			{
 				result.Append(_doAction(item));
+				result.Append(AnimalActions.ShowFaceAnimal(item));
 			}
 
 			result.Append(@"
 
-We iterate over the IEnumerable<IHouseCovariant<Animal>> and invoce the delegate with signature Func<Animal, string>
+We iterate over the IEnumerable<IHouseCovariant<Animal>>
 ");
 			foreach (IHouseCovariant<Animal> item in _houseWithAnimalCollection)
 			{
 				result.Append(_doAction(item.GetAnimal()));
+				result.Append(AnimalActions.ShowFaceAnimal(item.GetAnimal()));
 			}
 
 			result.Append(@"
 
-We iterate over the IEnumerable<Animal> and transfer item in the AnimalActions.ShowFace(Animal animal) method
+We initialize variable with type Animal by Cat object
 ");
-			foreach (Animal item in _animals)
-			{
-				result.Append(AnimalActions.ShowFace(item));
-			}
+			_animal = new Cat() { Name = "Behemoth" };
+			result.Append(_doAction(_animal));
+			result.Append(AnimalActions.ShowFaceAnimal(_animal));
 
 			result.Append(@"
 
-We iterate over the Animal[] and transfer item in the AnimalActions.ShowFace(Animal animal) method
+We initialize variable with type Animal by Dog object
 ");
-			foreach (Animal item in _animalsArray)
-			{
-				result.Append(AnimalActions.ShowFace(item));
-			}
+			_animal = new Dog() { Name = "Cerber" };
+			result.Append(_doAction(_animal));
+			result.Append(AnimalActions.ShowFaceAnimal(_animal));
 
 			result.Append(@"
 
-We iterate over the IEnumerable<IHouseCovariant<Animal>> and transfer item in the AnimalActions.ShowFace(Animal animal) method
-");
-			foreach (IHouseCovariant<Animal> item in _houseWithAnimalCollection)
-			{
-				result.Append(AnimalActions.ShowFace(item.GetAnimal()));
-			}
-
-			result.Append(@"
-
----------------------------------------------
-| We see the result which contain all items |
-=============================================
+-----------------------------------------------------------------------------
+| We see the result of delegates and methods for bouth of type: Cat and Dog |
+=============================================================================
 ");
 			Explanation = result.ToString();
 		}
