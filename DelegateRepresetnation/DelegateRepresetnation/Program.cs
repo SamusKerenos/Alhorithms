@@ -30,8 +30,6 @@ namespace DelegateRepresetnation
 			};
 
 			ShowResult(_conditionResolver, userInput);
-			
-			Console.ReadLine();
 		}
 
 		// метод полностью удовлетворяет делегату типа Func<string, bool>

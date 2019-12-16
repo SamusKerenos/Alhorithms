@@ -39,8 +39,6 @@ namespace ArraysRepresentation
 			}
 
 			Console.WriteLine("------------------------------------------------------");
-
-			Console.ReadLine();
 		}
 	}
 }
