@@ -15,19 +15,19 @@ namespace LinkedList
 		/// </summary>
 		public void Reverse()
 		{
-			ListItem<TItem> current = Head;
-			ListItem<TItem> previous = null;
-			ListItem<TItem> next = null;
+			ListItem<TItem> currentNode = Head;
+			ListItem<TItem> newHead = null;
+			ListItem<TItem> rawNode = null;
 
-			while (current != null)
+			while (currentNode != null)
 			{
-				next = current.Next;
-				current.Next = previous;
-				previous = current;
-				current = next;
+				rawNode = currentNode.Next;
+				currentNode.Next = newHead;
+				newHead = currentNode;
+				currentNode = rawNode;
 			}
 
-			Head = previous;
+			Head = newHead;
 		}
 		
 		public void Add(IEnumerable<TItem> values)
