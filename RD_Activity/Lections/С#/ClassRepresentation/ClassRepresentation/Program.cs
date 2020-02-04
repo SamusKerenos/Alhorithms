@@ -8,7 +8,7 @@ namespace ClassRepresentation
 		{
 			Person bill = new Person("Bill", new DateTime(1990, 04, 16));
 
-			Employee sam = new Employee();
+			Employee sam = new Employee("Sam", new DateTime(1990, 04, 16));
 
 			if (!bill.Equals(sam))
 			{
